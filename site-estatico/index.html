@@ -4,39 +4,232 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Início | Movimento Fisioterapia &amp; Pilates</title>
-  <meta name="description" content="TODO: descrição curta para o Google">
+  <meta name="description" content="Movimento Fisioterapia e Pilates em Botafogo, Rio de Janeiro: fisioterapia ortopédica, pilates em turmas de até 3 alunos e RPG. Agende sua avaliação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header>
-    <!-- Header -->
-    <!-- TODO -->
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#inicio" class="logo" aria-label="Movimento — voltar ao início">
+        <span class="logo-icon" aria-hidden="true"></span>
+        <span class="logo-text">MOVIMENTO</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav-list" id="menu-principal">
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#equipe" class="nav-link">Equipe</a></li>
+          <li><a href="#precos" class="nav-link">Convênios e preços</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+          <li class="nav-cta-item"><a href="#agendar" class="btn btn-dark btn-nav-cta">Agendar avaliação</a></li>
+        </ul>
+      </nav>
+
+      <a href="#agendar" class="btn btn-dark btn-header">Agendar avaliação</a>
+    </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <!-- TODO -->
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="inicio">
+    <!-- SEÇÃO HERO -->
+    <section class="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <p class="eyebrow">Fisioterapia e pilates em Botafogo</p>
+          <h1 class="hero-title">Cuidado de verdade para você se movimentar sem dor</h1>
+          <p class="hero-description">
+            Avaliação completa antes de qualquer tratamento e turmas de pilates com no máximo 3 alunos.
+          </p>
+          <div class="hero-buttons">
+            <a href="#agendar" class="btn btn-dark">Agendar avaliação</a>
+            <a href="#agendar" class="btn btn-outline">Aula experimental grátis</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="placeholder hero-placeholder" role="img" aria-label="Foto do espaço da clínica">[ imagem ]&nbsp;&nbsp;Foto do espaço da clínica</div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Serviços -->
-    <!-- TODO -->
+    <!-- SERVIÇOS -->
+    <section class="section section-white" id="servicos">
+      <div class="container">
+        <h2 class="section-title">Nossos serviços</h2>
+        <p class="section-sub">Tratamentos individuais e acompanhamento próximo.</p>
+        <div class="cards-3">
+          <article class="card">
+            <div class="placeholder card-placeholder" role="img" aria-label="Foto do serviço de fisioterapia">[ imagem ]&nbsp;&nbsp;Foto do serviço</div>
+            <h3 class="card-title">Fisioterapia ortopédica</h3>
+            <p class="card-text">Recuperação de lesões, dores e pós-operatório de joelho e ombro.</p>
+            <a class="card-link" href="servicos.html">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card">
+            <div class="placeholder card-placeholder" role="img" aria-label="Foto do serviço de pilates">[ imagem ]&nbsp;&nbsp;Foto do serviço</div>
+            <h3 class="card-title">Pilates</h3>
+            <p class="card-text">Fortalecimento e postura em turmas de até 3 alunos ou aulas individuais.</p>
+            <a class="card-link" href="servicos.html">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card">
+            <div class="placeholder card-placeholder" role="img" aria-label="Foto do serviço de RPG">[ imagem ]&nbsp;&nbsp;Foto do serviço</div>
+            <h3 class="card-title">RPG</h3>
+            <p class="card-text">Reeducação postural global para dores crônicas e postura.</p>
+            <a class="card-link" href="servicos.html">Saiba mais <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Por que a Movimento -->
-    <!-- TODO -->
+    <!-- DIFERENCIAIS -->
+    <section class="section section-gray">
+      <div class="container">
+        <h2 class="section-title">Por que a Movimento</h2>
+        <div class="cards-3 cards-diff">
+          <article class="card card-flat">
+            <h3 class="card-title">Turmas de até 3 alunos</h3>
+            <p class="card-text">Atenção individual em cada aula de pilates.</p>
+          </article>
+          <article class="card card-flat">
+            <h3 class="card-title">Avaliação completa</h3>
+            <p class="card-text">Todo tratamento começa entendendo o seu caso.</p>
+          </article>
+          <article class="card card-flat">
+            <h3 class="card-title">Equipe especializada</h3>
+            <p class="card-text">3 fisioterapeutas e 2 instrutoras de pilates.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Equipe -->
-    <!-- TODO -->
+    <!-- EQUIPE -->
+    <section class="section section-white" id="equipe">
+      <div class="container">
+        <h2 class="section-title">Nossa equipe</h2>
+        <div class="cards-3">
+          <article class="card">
+            <div class="placeholder card-placeholder" role="img" aria-label="Foto de Dra. Carla Menezes">[ imagem ]&nbsp;&nbsp;Foto</div>
+            <h3 class="card-title">Dra. Carla Menezes</h3>
+            <p class="card-text">Fisioterapeuta e fundadora</p>
+          </article>
+          <article class="card">
+            <div class="placeholder card-placeholder" role="img" aria-label="Foto do profissional">[ imagem ]&nbsp;&nbsp;Foto</div>
+            <h3 class="card-title">Nome do profissional</h3>
+            <p class="card-text">Fisioterapeuta</p>
+          </article>
+          <article class="card">
+            <div class="placeholder card-placeholder" role="img" aria-label="Foto da profissional">[ imagem ]&nbsp;&nbsp;Foto</div>
+            <h3 class="card-title">Nome do profissional</h3>
+            <p class="card-text">Instrutora de pilates</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Convênios e preços -->
-    <!-- TODO -->
+    <!-- CONVÊNIOS E PREÇOS -->
+    <section class="section section-gray" id="precos">
+      <div class="container precos-container">
+        <div class="precos-text">
+          <h2 class="section-title">Convênios e preços</h2>
+          <p class="precos-desc">Aceitamos Amil e SulAmérica para fisioterapia, com pedido médico. Para outros planos, emitimos recibo para reembolso.</p>
+        </div>
+        <a href="servicos.html#precos" class="btn btn-outline">Ver preços</a>
+      </div>
+    </section>
 
-    <!-- Contato (formulário) -->
-    <!-- TODO -->
+    <!-- CONTATO / AGENDAR -->
+    <section class="section section-white" id="contato">
+      <div class="container">
+        <h2 class="section-title">Agende sua avaliação</h2>
+        <p class="section-sub">Preencha e nossa equipe responde pelo WhatsApp.</p>
+        <div class="contato-grid">
+          <div class="form-card" id="agendar">
+            <form class="form" action="#" method="post">
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(21) 90000-0000" autocomplete="tel" required>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="voce@email.com" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="interesse">Interesse</label>
+                <select id="interesse" name="interesse" required>
+                  <option value="" disabled selected>Selecione: fisioterapia, pilates ou RPG</option>
+                  <option value="fisioterapia">Fisioterapia</option>
+                  <option value="pilates">Pilates</option>
+                  <option value="rpg">RPG</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-dark btn-full">Enviar</button>
+              <p class="form-note">Ao enviar, você concorda em ser contatado pela clínica. Não pedimos informações de saúde neste formulário.</p>
+            </form>
+          </div>
+          <div class="contato-info">
+            <div class="info-block">
+              <h3 class="info-title">Endereço</h3>
+              <p class="info-text">Rua Voluntários da Pátria, Botafogo – Rio de Janeiro (2º andar, sem elevador)</p>
+            </div>
+            <div class="info-block">
+              <h3 class="info-title">Horário</h3>
+              <p class="info-text">Seg a sex, 7h às 21h · Sáb, 8h às 12h</p>
+            </div>
+            <div class="info-block">
+              <h3 class="info-title">Contato</h3>
+              <p class="info-text"><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://instagram.com/movimento.fisio" target="_blank" rel="noopener">@movimento.fisio</a></p>
+            </div>
+            <div class="placeholder map-placeholder" role="img" aria-label="Mapa da clínica no Google Maps">[ imagem ]&nbsp;&nbsp;Mapa (Google Maps)</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <!-- Rodapé -->
-    <!-- TODO -->
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p class="footer-logo">MOVIMENTO</p>
+      <div class="footer-col">
+        <p class="footer-heading">Movimento</p>
+        <p class="footer-text">Fisioterapia &amp; Pilates</p>
+        <p class="footer-text">Botafogo – Rio de Janeiro</p>
+      </div>
+      <nav class="footer-col" aria-label="Navegação do rodapé">
+        <p class="footer-heading">Navegação</p>
+        <ul class="footer-list">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#precos">Convênios e preços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-heading">Contato</p>
+        <ul class="footer-list">
+          <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://instagram.com/movimento.fisio" target="_blank" rel="noopener">Instagram @movimento.fisio</a></li>
+          <li>Seg a sex, 7h às 21h</li>
+        </ul>
+      </div>
+    </div>
   </footer>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/5500000000000" class="btn-whatsapp-fixed" target="_blank" rel="noopener">WhatsApp</a>
 </body>
 </html>
