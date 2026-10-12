@@ -4,30 +4,181 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serviços | Movimento Fisioterapia &amp; Pilates</title>
-  <meta name="description" content="TODO: descrição curta para o Google">
+  <meta name="description" content="Conheça os serviços da Movimento Fisioterapia &amp; Pilates: fisioterapia ortopédica, Pilates e RPG, com valores e formas de pagamento.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/servicos.css">
   <script src="js/main.js" defer></script>
 </head>
-<body>
-  <header>
-    <!-- Header -->
-    <!-- TODO -->
+<body class="pagina-servicos">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Movimento Fisioterapia e Pilates — Início">
+        <span class="logo-bolinha" aria-hidden="true"></span>
+        MOVIMENTO
+      </a>
+
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="servicos.html" aria-current="page">Serviços</a></li>
+          <li><a href="index.html#espaco">Espaço</a></li>
+          <li><a href="index.html#precos">Conheça e preços</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+        <a class="botao botao-primario header-cta" href="#">
+          Agendar avaliação
+          <!-- PENDÊNCIA: número oficial do WhatsApp não consta no projeto — substituir href="#" por https://wa.me/<número> e recolocar target="_blank" rel="noopener" -->
+        </a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- Título da página: Serviços -->
-    <!-- TODO -->
+    <!-- Introdução -->
+    <section class="intro">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Trilha de navegação">
+          <a href="index.html">Início</a>
+          <span aria-hidden="true">/</span>
+          <span>Serviços</span>
+        </nav>
+        <h1>Serviços</h1>
+        <p class="intro-sub">Conheça cada tratamento, para quem é indicado e quanto custa.</p>
+      </div>
+    </section>
 
-    <!-- Conteúdo da página (ver wireframe) -->
-    <!-- TODO -->
+    <!-- Fisioterapia ortopédica -->
+    <section class="servico" aria-labelledby="titulo-fisio">
+      <div class="container servico-inner">
+        <div class="servico-imagem" role="img" aria-label="Foto de paciente em avaliação">
+          [Imagem]: Foto de paciente em avaliação
+        </div>
+        <div class="servico-conteudo">
+          <h2 id="titulo-fisio">Fisioterapia ortopédica</h2>
+          <p>Tratamento individual para dor, lesão e recuperação pós-cirúrgica.</p>
+          <p class="servico-valor">Sessão de 50 min: <strong>R$ 150</strong> · pacote de 10 sessões: <strong>R$ 1.300</strong></p>
+          <p class="servico-nota"><a href="#tabela-precos">(Consulte formas de pagamento e reembolso)</a></p>
+          <a class="botao botao-primario" href="#">
+            Agendar avaliação R$ 180
+            <!-- PENDÊNCIA: número oficial do WhatsApp não consta no projeto — substituir href="#" por https://wa.me/<número>?text=... e recolocar target="_blank" rel="noopener" -->
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <!-- Chamada final -->
-    <!-- TODO -->
+    <!-- Pilates -->
+    <section class="servico servico-cinza" aria-labelledby="titulo-pilates">
+      <div class="container servico-inner">
+        <div class="servico-imagem" role="img" aria-label="Foto do estúdio de pilates">
+          [Imagem]: Foto do estúdio de pilates
+        </div>
+        <div class="servico-conteudo">
+          <h2 id="titulo-pilates">Pilates</h2>
+          <p>Aulas em turmas de até 3 alunos ou individuais, com plano de 8 sessões por mês.</p>
+          <p class="servico-valor">2x/semana: <strong>R$ 420/mês</strong> · 3x/semana: <strong>R$ 560/mês</strong> · aulas avulsas: <strong>R$ 120</strong></p>
+          <p class="servico-nota"><a href="#tabela-precos">(Grade de horários e valores avulsos)</a></p>
+          <a class="botao botao-primario" href="#">
+            Agendar minha aula experimental
+            <!-- PENDÊNCIA: número oficial do WhatsApp não consta no projeto — substituir href="#" por https://wa.me/<número>?text=... e recolocar target="_blank" rel="noopener" -->
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RPG -->
+    <section class="servico" aria-labelledby="titulo-rpg">
+      <div class="container servico-inner">
+        <div class="servico-imagem" role="img" aria-label="Foto de sessão de RPG">
+          [Imagem]: Foto de sessão de RPG
+        </div>
+        <div class="servico-conteudo">
+          <h2 id="titulo-rpg">RPG</h2>
+          <p>Reeducação postural global para dores crônicas e desvios da postura.</p>
+          <p class="servico-valor">Sessão de 50 min: <strong>R$ 170</strong></p>
+          <a class="botao botao-primario" href="#">
+            Agendar avaliação
+            <!-- PENDÊNCIA: número oficial do WhatsApp não consta no projeto — substituir href="#" por https://wa.me/<número>?text=... e recolocar target="_blank" rel="noopener" -->
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabela de preços -->
+    <section class="precos" id="tabela-precos" aria-labelledby="titulo-precos">
+      <div class="container">
+        <h2 id="titulo-precos" class="titulo-secao">Tabela de preços</h2>
+        <p class="precos-formas">Formas de pagamento: Pix, débito e crédito (até 2x no pacote de 10 sessões).</p>
+
+        <div class="tabela-cartao">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Serviço</th>
+                <th scope="col" class="col-valor">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Avaliação fisioterapêutica 50 min</td>
+                <td class="col-valor">R$ 180</td>
+              </tr>
+              <tr>
+                <td>Sessão de fisioterapia</td>
+                <td class="col-valor">R$ 150</td>
+              </tr>
+              <tr>
+                <td>Pacote de 10 sessões</td>
+                <td class="col-valor">R$ 1.300</td>
+              </tr>
+              <tr>
+                <td>RPG (sessão)</td>
+                <td class="col-valor">R$ 170</td>
+              </tr>
+              <tr>
+                <td>Pilates avulso</td>
+                <td class="col-valor">R$ 120</td>
+              </tr>
+              <tr>
+                <td>Aula avulsa ou individual</td>
+                <td class="col-valor">R$ 150</td>
+              </tr>
+              <tr>
+                <td>Aula experimental de pilates</td>
+                <td class="col-valor">Grátis</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chamada final (WhatsApp) -->
+    <section class="cta-whatsapp" aria-labelledby="titulo-cta">
+      <div class="container">
+        <h2 id="titulo-cta">Ainda com dúvida? Fale com a gente pelo WhatsApp.</h2>
+        <a class="botao botao-claro" href="#">
+          Abrir WhatsApp
+          <!-- PENDÊNCIA: número oficial do WhatsApp não consta no projeto — substituir href="#" por https://wa.me/<número> e recolocar target="_blank" rel="noopener" -->
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <!-- Rodapé -->
-    <!-- TODO -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-logo"><span class="logo-bolinha" aria-hidden="true"></span> MOVIMENTO</p>
+      <p>[TODO: endereço da clínica]</p>
+      <p>[TODO: telefone / WhatsApp] · [TODO: e-mail de contato]</p>
+      <p class="footer-copy">© 2026 Movimento Fisioterapia &amp; Pilates. Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+  <!-- Botão flutuante de WhatsApp -->
+  <a class="whatsapp-flutuante" href="#" aria-label="Falar pelo WhatsApp">
+    WhatsApp
+    <!-- PENDÊNCIA: número oficial do WhatsApp não consta no projeto — substituir href="#" por https://wa.me/<número> e recolocar target="_blank" rel="noopener" -->
+  </a>
+
 </body>
 </html>
