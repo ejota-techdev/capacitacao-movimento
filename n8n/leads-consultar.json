@@ -1,0 +1,104 @@
+{
+  "name": "Leads - Listar",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "leads",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        -368,
+        -48
+      ],
+      "id": "d5939c44-7069-4e01-90b6-75c0dc26429c",
+      "name": "Webhook",
+      "webhookId": "856e42be-307b-4794-8dee-0881934c562a"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "PLANILHA_ID",
+          "mode": "list",
+          "cachedResultName": "Leads-Carla Menezes"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -144,
+        -48
+      ],
+      "id": "91932197-f15c-425c-b2c4-3f8bae0112e8",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CREDENCIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        96,
+        -48
+      ],
+      "id": "fce84f53-962c-4932-91fe-30f87f1f14e5",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "e298485e-fa34-4882-aa2d-16b726138b03",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "INSTACIA_ID"
+  },
+  "nodeGroups": [],
+  "id": "URv1bzirw3seU0BA",
+  "tags": []
+}
