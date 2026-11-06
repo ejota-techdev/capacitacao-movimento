@@ -1,0 +1,408 @@
+{
+  "name": "Agente de IA - Wpp",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -496,
+        -48
+      ],
+      "id": "29f61ec6-c919-401b-99b3-8cfe2599c05f",
+      "name": "When chat message received",
+      "webhookId": "ee531c20-fb21-418c-80b5-cb69e19559f2"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "# Identidade\nVoce e a assistente virtual da Movimento Fisioterapia & Pilates, clinica em Botafogo (Rio de Janeiro). Voce conversa pelo WhatsApp com pessoas interessadas nos servicos da clinica.\n\n# Objetivo\nTirar duvidas sobre servicos, horarios, precos e convenios, e ajudar a pessoa a agendar uma avaliacao ou aula experimental. Uma conversa bem-sucedida termina com o lead registrado ou transferido para a recepcao.\n\n# Fonte da verdade\nInformacoes sobre servicos, precos, horarios e convenios vem SOMENTE da ferramenta consultar_faq. Se a informacao nao estiver la, diga que vai verificar com a equipe e use transferir_humano. Nunca estime valores.\n\n# Ferramentas\n- consultar_faq: use antes de responder qualquer pergunta sobre a clinica.\n- consultar_servicos: use antes de responder qualquer pergunta sobre a clinica.\n- registrar_lead: use quando a pessoa informar nome e interesse. Pergunte o que faltar, uma coisa por vez.\n- transferir_humano: use nos casos da secao Transferencia.\n\n# Transferencia (obrigatoria)\nDor forte, lesao recente ou urgencia (oriente procurar atendimento medico); perguntas sobre o proprio caso clinico; reclamacao; pedido de desconto; pedido para falar com uma pessoa. serviços fora do consulta_servicos.Diga: \"Vou chamar alguem da nossa equipe para te ajudar com isso.\"\n\n# Tom e formato\nAcolhedor e direto, trate por voce. Mensagens de ate 3 frases curtas. No maximo 1 emoji por mensagem. Sem listas longas.\n\n# Limites\nNao de orientacao clinica nem diagnostico. Nao peca informacoes de saude alem do interesse no servico. Nao processe pagamentos. Se perguntarem, diga que e uma assistente virtual.\n\n# Lembrete final\nNa duvida entre responder e transferir, transfira. Nunca invente informacao."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -272,
+        -48
+      ],
+      "id": "7acd44c4-4d23-4f30-8ce7-880bf438cee7",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -176,
+        160
+      ],
+      "id": "3b1cad20-294b-46d3-a723-3110ac9749af",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-flash-lite-latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        -368,
+        144
+      ],
+      "id": "d2412b6f-d4b5-4612-ae78-1914c8959fc1",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Bn8OR6F9Ul300ADw",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use esta ferramenta para transferir a conversa para a recepcao humana em casos de dor forte, urgencia, reclamacao, pedido de desconto ou duvidas clinicas",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k",
+          "mode": "list",
+          "cachedResultName": "Leads-Carla Menezes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2089662125,
+          "mode": "list",
+          "cachedResultName": "Atendimentos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k/edit#gid=2089662125"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telefone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('telefone', ``, 'string') }}",
+            "motivo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('motivo', ``, 'string') }}",
+            "horário": "={{ $now.toFormat('yyyy-MM-dd HH:mm') }}",
+            "status": "humano"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "telefone",
+              "displayName": "telefone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "motivo",
+              "displayName": "motivo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "horário",
+              "displayName": "horário",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        256,
+        160
+      ],
+      "id": "b870d0fd-59c9-46b7-b905-44ea9aedbf6e",
+      "name": "transferir_humano",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9bFUqset87Xg6Lmy",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "recipientPhoneNumber": "={{ $json.messages[0].from }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        96,
+        -48
+      ],
+      "id": "ef599ebe-fc47-4c95-8509-c03ff26a22b7",
+      "name": "Send message",
+      "webhookId": "e4023e81-9639-4c38-a95b-20b25d7598df"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k",
+          "mode": "list",
+          "cachedResultName": "Leads-Carla Menezes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1274002352,
+          "mode": "list",
+          "cachedResultName": "FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k/edit#gid=1274002352"
+        },
+        "filtersUI": {
+          "values": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        96,
+        160
+      ],
+      "id": "80353d32-6383-4609-904c-05b2a786fed4",
+      "name": "consultar_faq",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9bFUqset87Xg6Lmy",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Use esta ferramenta para registrar um lead quando o cliente fornecer o nome,  o numero e o interesse em um serviço da clínica.",
+        "workflowId": {
+          "__rl": true,
+          "value": "wSELeEsbC7ZwSobs",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/wSELeEsbC7ZwSobs",
+          "cachedResultName": "Lead-gravar"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "nome": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('nome', ``, 'string') }}",
+            "email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('email', ``, 'string') }}",
+            "whatsapp": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('whatsapp', ``, 'string') }}",
+            "interesse": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('interesse', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "whatsapp",
+              "displayName": "whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "interesse",
+              "displayName": "interesse",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        416,
+        160
+      ],
+      "id": "9cb674cf-4355-4d3b-936c-706825f68ee3",
+      "name": "registrar_lead"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k",
+          "mode": "list",
+          "cachedResultName": "Leads-Carla Menezes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1627560486,
+          "mode": "list",
+          "cachedResultName": "Serviços",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ORHD7dCfk0JS85j5ym_jQ4XQKE5KAGFdOATew6_SB5k/edit#gid=1627560486"
+        },
+        "filtersUI": {
+          "values": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -32,
+        160
+      ],
+      "id": "9a517ef6-8409-4bec-ab55-7a5403c1d7db",
+      "name": "consulta_servicos",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9bFUqset87Xg6Lmy",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "transferir_humano": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "consultar_faq": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "registrar_lead": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_servicos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "e1457055-3643-4d63-9630-c017b31f87a6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8fdd778302cd65eac4749672141addb444e78adc04b02749d572ef7fe957fd90"
+  },
+  "nodeGroups": [],
+  "id": "5d61dFoc9FAZwnOs",
+  "tags": []
+}
