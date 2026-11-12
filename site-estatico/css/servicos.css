@@ -1,0 +1,355 @@
+/* Estilos específicos da página Serviços (não altera style.css). */
+
+:root {
+  --cor-fundo-cinza: #f4f4f4;
+  --cor-placeholder: #e3e3e3;
+  --cor-borda: #e0e0e0;
+  --cor-suave: #666666;
+  --cor-escuro: #2b2b2b;
+}
+
+body.pagina-servicos {
+  line-height: 1.6;
+}
+
+.container {
+  width: min(100% - 2.5rem, 1080px);
+  margin-inline: auto;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.15s ease;
+}
+
+.botao:hover {
+  opacity: 0.85;
+}
+
+.botao-primario {
+  background: var(--cor-escuro);
+  color: #ffffff;
+}
+
+.botao-claro {
+  background: #ffffff;
+  color: var(--cor-escuro);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.logo-bolinha {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #999999;
+  display: inline-block;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.menu ul {
+  display: flex;
+  gap: 1.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+/* ---------- Introdução (faixa full-width, fundo cinza-claro) ---------- */
+.intro {
+  background: var(--cor-fundo-cinza);
+  padding-block: 2.4rem 2.8rem;
+}
+
+/* Âncoras não ficam escondidas atrás do header fixo */
+section[id] {
+  scroll-margin-top: 76px;
+}
+
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--cor-suave);
+  margin-bottom: 1.4rem;
+}
+
+.breadcrumb a {
+  color: var(--cor-suave);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.intro h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.intro-sub {
+  margin: 0;
+  color: var(--cor-suave);
+  font-size: 1.02rem;
+}
+
+/* ---------- Blocos de serviço ---------- */
+.servico {
+  padding-block: 3rem;
+  background: #ffffff;
+}
+
+.servico-cinza {
+  background: var(--cor-fundo-cinza);
+}
+
+.servico-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.servico-imagem {
+  background: var(--cor-placeholder);
+  color: var(--cor-suave);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 240px;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.servico-conteudo h2 {
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  margin: 0 0 0.7rem;
+}
+
+.servico-conteudo p {
+  margin: 0 0 0.9rem;
+  color: var(--cor-suave);
+  max-width: 46ch;
+}
+
+.servico-conteudo .servico-valor {
+  color: var(--cor-texto);
+  font-size: 0.98rem;
+}
+
+.servico-conteudo .servico-valor strong {
+  font-weight: 700;
+}
+
+.servico-nota {
+  font-size: 0.82rem;
+}
+
+.servico-nota a {
+  color: var(--cor-suave);
+}
+
+/* ---------- Tabela de preços ---------- */
+.precos {
+  padding-block: 3.2rem;
+  background: #ffffff;
+}
+
+.titulo-secao {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0 0 0.4rem;
+}
+
+.precos-formas {
+  margin: 0 0 1.6rem;
+  color: var(--cor-suave);
+  font-size: 0.92rem;
+}
+
+.tabela-cartao {
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-cartao table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.tabela-cartao th,
+.tabela-cartao td {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela-cartao thead th {
+  background: var(--cor-fundo-cinza);
+  font-size: 0.85rem;
+  color: var(--cor-suave);
+}
+
+.tabela-cartao tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela-cartao .col-valor {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tabela-cartao tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* ---------- CTA WhatsApp ---------- */
+.cta-whatsapp {
+  background: var(--cor-escuro);
+  color: #ffffff;
+  text-align: center;
+  padding-block: 3.4rem;
+}
+
+.cta-whatsapp h2 {
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+/* ---------- Rodapé ---------- */
+.site-footer {
+  background: #1f1f1f;
+  color: #cccccc;
+  font-size: 0.88rem;
+  padding-block: 2.2rem;
+}
+
+.footer-inner p {
+  margin: 0.3rem 0;
+}
+
+.footer-logo {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-copy {
+  margin-top: 1rem !important;
+  font-size: 0.8rem;
+  color: #999999;
+}
+
+/* ---------- WhatsApp flutuante ---------- */
+.whatsapp-flutuante {
+  position: fixed;
+  right: 0;
+  top: 55%;
+  background: var(--cor-escuro);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px 0 0 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 60;
+}
+
+.whatsapp-flutuante:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Responsivo ---------- */
+@media (min-width: 768px) {
+  .servico-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .servico-imagem {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .menu {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .menu ul {
+    justify-content: center;
+    gap: 0.9rem;
+  }
+
+  .whatsapp-flutuante {
+    top: auto;
+    bottom: 1rem;
+  }
+}
